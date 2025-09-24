@@ -31,7 +31,7 @@
 
     // Comprueba si se devuelve un mensaje
     if (isset($objC->msg) && !empty($objC->msg)) {
-        $msg=$objC->msg;
+        $mensaje=$objC->msg;
     }
 
 

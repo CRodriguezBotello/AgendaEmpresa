@@ -3,6 +3,7 @@
     class CAgenda{
 
         public $vista;
+        public $msg;
 
         public function Menu(){
             $this->vista="menu";
@@ -16,6 +17,7 @@
         } 
         
         public function AnadirPersona(){
+            $this->vista="mensajeAnadir";
 
             if (isset($_POST["nombre"]) && !empty($_POST["nombre"])) {
 
@@ -46,17 +48,42 @@
                                         $hobbies= $_POST["hobbies"];
 
                                         $objPersona = new MAgenda();
-                                        $datos=$objPersona->AnadirPersona($nombre, $apellido, $codPostal, $tfn, $genero, $edad, $hobbies);
-                                        $this->vista="nuevaPersona";
-                                        return $datos;
+                                        $msg=$objPersona->AnadirPersona($nombre, $apellido, $codPostal, $tfn, $genero, $edad, $hobbies);
+                                        var_dump($msg);
+                                        return $msg;
 
+                                    }else{
+                                        $this->msg= "Debes seleccionar al menos 1 hobby";
+                                        return $this->msg;
                                     }
+                                }else{
+                                    $this->msg="Recuerda añadir la edad";  
+                                    return $this->msg; 
                                 }
+                            }else{
+                                $this->msg= "Recuerda seleccionar un genero";
+                                return $this->msg;
                             }
+                        }else{
+                            $this->msg= "Recuerda añadir un telefono";
+                            return $this->msg;
                         }
+                    }else{
+                        $this->msg="Recuerda añadir un codigo postal";
+                        return $this->msg;
                     }
+                }else{
+                    $this->msg="Recuerda añadir un apellido";
+                    return $this->msg;
                 }
+            }else{
+                var_dump($this->msg);
+                var_dump($this->vista);
+                $this->msg="Recuerda añadir un nombre";
+                return $this->msg;
             }
+
+            
             
         }
         

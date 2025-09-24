@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Añadir Nueva Persona</h1>
-    <form action="" method="post">
+    <form action="index.php?controlador=CAgenda&metodo=AnadirPersona" method="post">
         <label for="nombre">Nombre de la persona</label><br>
         <input type="text" name="nombre"><br><br>
         <label for="apellido">Apellidos de la persona</label><br>
@@ -17,7 +17,8 @@
         <label for="tfn">Teléfono de la persona</label><br>
         <input type="text" name="tfn"><br><br>
         <label for="genero">Género de la persona</label><br>
-        <input type="text" name="genero"><br><br>
+        <input type="radio" name="genero" value="M">Masculino<br>
+        <input type="radio" name="genero" value="F">Femenino<br><br>
         <label for="edad">Edad de la persona</label><br>
         <input type="text" name="edad"></br></br>
 
@@ -27,7 +28,10 @@
             echo '</br>';
           }
         ?>
+      <input type="submit" value="Enviar">
+      <input type="reset" value="Borrar datos">
     </form>
+    
     <p><a href="index.php?controlador=CAgenda&metodo=Menu">Cancelar</a></p>
 </body>
 </html>
