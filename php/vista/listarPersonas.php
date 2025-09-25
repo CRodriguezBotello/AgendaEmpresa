@@ -20,6 +20,7 @@
         <th>Género</th>
         <th>Edad</th>
         <th>Hobby</th>
+        <th>Opciones</th>
       </tr>
     </thead>
     <tbody>
@@ -34,11 +35,15 @@
             echo '<td>'.$persona["genero"].'</td>';
             echo '<td>'.$persona["edad"].'</td>';
             echo '<td>'.$persona["hobby"].'</td>';
+            echo '<td>
+                    <p><a href="index.php?controlador=CAgenda&metodo=Menu">Borrar</a></p>
+                    <p><a href="index.php?controlador=CAgenda&metodo=Menu">Modificar</a></p>
+                  </td>';
             echo '</tr>';
           }
         ?>
     </tbody>
   </table>
-  <p><a href="index.php?controlador=CAgenda&metodo=Menu">Volver al Menú</a></p>
+  <p id="menu"><a href="index.php?controlador=CAgenda&metodo=Menu">Volver al Menú</a></p>
 </body>
 </html>

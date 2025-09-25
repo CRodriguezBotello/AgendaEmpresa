@@ -89,13 +89,19 @@
         }
 
         public function BuscarPersona(){
-            $this->vista="listarPersonas";
             if (isset($_POST["filtro"]) && !empty($_POST["filtro"]) && isset($_POST["buscar"]) && !empty($_POST["buscar"])) {
                 $filtro=$_POST["filtro"];
                 $buscar=$_POST["buscar"];
 
                 $objPersona = new MAgenda();
                 $datos=$objPersona->BuscarPersona($filtro, $buscar);
+                if ($datos == "No hay resultados") {
+                    $this->vista= "mensajeAnadir";
+                    $this->msg= "No hay resultados";
+                    return $this->msg;
+                }else{
+                    $this->vista="listarPersonas";
+                }
                 return $datos;
 
 
