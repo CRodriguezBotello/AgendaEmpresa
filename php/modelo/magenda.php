@@ -22,6 +22,7 @@
                 return($personas);
             }else{
                 $this->msg="No hay personas todavia";
+                return $this->msg;
                 
             }
             
@@ -88,5 +89,42 @@
                 return $this->msg;
             }
         }
+
+        public function BuscarPersonaModificar($idPersona){
+
+            $sql= "SELECT p.IdPersona, p.nombre, p.apellido, p.codPostal, p.tfn, p.genero, p.edad from persona p where IdPersona = $idPersona";
+            $resultado=$this->conexion->query($sql);
+
+            if($resultado->num_rows > 0){
+                while ($fila = $resultado->fetch_assoc()) {
+                    $personas[]=$fila;
+                }
+                return($personas);
+            }else{
+
+                $this->msg="Persona no encontrada";
+                return $this->msg;
+                
+            }
+            
+        }
+
+        public function HobbiesPersona($idPersona){
+            $sql= "SELECT h.IdHobby, h.hobby, CASE WHEN ph.idPersona IS NOT NULL THEN true ELSE false END AS hobbyElegido FROM hobby h LEFT JOIN persona_hobby ph ON h.IdHobby = ph.IdHobby AND ph.idPersona = $idPersona;";
+            $resultado=$this->conexion->query($sql);
+
+            if($resultado->num_rows > 0){
+                while ($fila = $resultado->fetch_assoc()) {
+                    $hobbies[]=$fila;
+                }
+                return($hobbies);
+            }else{
+
+                $this->msg="Esta persona no tiene Hobbies";
+                return $this->msg;
+                
+            }
+        }
+
     }
 ?>

@@ -123,6 +123,28 @@
             $this->vista= "mensajeAnadir";
             return $this->msg;
         }
+
+        public function BuscarPersonaModificar(){
+            $idPersona=$_GET["idPersona"];
+            $objPersona = new MAgenda();
+            $datos=$objPersona->BuscarPersonaModificar($idPersona);
+            if ($datos) {
+                // var_dump($datos);
+                $hobbies=$objPersona->HobbiesPersona($idPersona);
+
+                $persona=[
+                    "persona" => $datos,
+                    "hobbies" => $hobbies
+                ];
+                $this->vista="formModificar";
+                return $persona;
+
+            }else{
+                $this->msg = "Persona no encontrada";
+            }
+
+
+        }
         
     }
 ?>

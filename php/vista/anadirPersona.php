@@ -22,6 +22,7 @@
         <label for="edad">Edad de la persona</label><br>
         <input type="text" name="edad"></br></br>
 
+        <label for="hobbies">Hobbies a elegir</label>
         <?php
           foreach($datos as $hobbies){
             echo '<input type="checkbox" name="hobbies[]" value='.$hobbies["IdHobby"].'>'.$hobbies["hobby"];
