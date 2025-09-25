@@ -8,6 +8,10 @@
         public function Menu(){
             $this->vista="menu";
         }
+
+        public function InicioBuscar(){
+            $this->vista="buscarPersona";
+        }
         
         public function ListarPersona(){
             $objPersona = new MAgenda();
@@ -48,9 +52,8 @@
                                         $hobbies= $_POST["hobbies"];
 
                                         $objPersona = new MAgenda();
-                                        $msg=$objPersona->AnadirPersona($nombre, $apellido, $codPostal, $tfn, $genero, $edad, $hobbies);
-                                        var_dump($msg);
-                                        return $msg;
+                                        $this->msg=$objPersona->AnadirPersona($nombre, $apellido, $codPostal, $tfn, $genero, $edad, $hobbies);
+                                        return $this->msg;
 
                                     }else{
                                         $this->msg= "Debes seleccionar al menos 1 hobby";
@@ -77,14 +80,29 @@
                     return $this->msg;
                 }
             }else{
-                var_dump($this->msg);
-                var_dump($this->vista);
                 $this->msg="Recuerda añadir un nombre";
                 return $this->msg;
             }
 
             
             
+        }
+
+        public function BuscarPersona(){
+            $this->vista="listarPersonas";
+            if (isset($_POST["filtro"]) && !empty($_POST["filtro"]) && isset($_POST["buscar"]) && !empty($_POST["buscar"])) {
+                $filtro=$_POST["filtro"];
+                $buscar=$_POST["buscar"];
+
+                $objPersona = new MAgenda();
+                $datos=$objPersona->BuscarPersona($filtro, $buscar);
+                return $datos;
+
+
+            }else{
+                $this->msg= "Faltan campos por rellenar";
+                return $this->msg;
+            }
         }
         
     }

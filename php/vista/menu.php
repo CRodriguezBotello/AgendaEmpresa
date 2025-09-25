@@ -11,7 +11,7 @@
         <h1>Gestión de Personas</h1>
         <ul>
             <li><a href="index.php?controlador=CAgenda&metodo=ListarPersona">Listar Personas</a></li>
-            <li><a href="#">Buscar Persona</a></li>
+            <li><a href="index.php?controlador=CAgenda&metodo=InicioBuscar">Buscar Persona</a></li>
             <li><a href="index.php?controlador=CHobby&metodo=ListarHobby">Añadir Nueva Persona</a></li>
         </ul>
     </div>
