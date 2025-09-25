@@ -12,6 +12,10 @@
         public function InicioBuscar(){
             $this->vista="buscarPersona";
         }
+
+        public function ConfirmarBorrar(){
+            $this->vista="confirmarBorrar";
+        }
         
         public function ListarPersona(){
             $objPersona = new MAgenda();
@@ -109,6 +113,15 @@
                 $this->msg= "Faltan campos por rellenar";
                 return $this->msg;
             }
+        }
+
+        public function BorrarPersona(){
+            
+            $idPersona=$_GET["idPersona"];
+            $objPersona =new MAgenda();
+            $this->msg=$objPersona->BorrarPersona($idPersona);
+            $this->vista= "mensajeAnadir";
+            return $this->msg;
         }
         
     }

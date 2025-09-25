@@ -36,7 +36,7 @@
             echo '<td>'.$persona["edad"].'</td>';
             echo '<td>'.$persona["hobby"].'</td>';
             echo '<td>
-                    <p><a href="index.php?controlador=CAgenda&metodo=Menu">Borrar</a></p>
+                    <p><a href="index.php?controlador=CAgenda&metodo=ConfirmarBorrar&idPersona='.$persona["IdPersona"].'">Borrar</a></p>
                     <p><a href="index.php?controlador=CAgenda&metodo=Menu">Modificar</a></p>
                   </td>';
             echo '</tr>';

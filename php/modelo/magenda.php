@@ -69,5 +69,24 @@
                 return $this->msg;
             }
         }
+
+        public function BorrarPersona($idPersona){
+            $this->conexion->begin_transaction();
+
+            try {
+                $stmt = $this->conexion->prepare("DELETE FROM persona WHERE IdPersona = ?");
+                $stmt->bind_param("i", $idPersona);
+                $stmt->execute();
+                $stmt->close();
+                $this->conexion->commit();
+
+                $this->msg= "Persona eliminada correctamente";
+                return $this->msg;
+            } catch (Exception $e) {
+                $this->conexion->rollback();
+                $this->msg= "Error al eliminar a la persona".$e->getMessage();
+                return $this->msg;
+            }
+        }
     }
 ?>
