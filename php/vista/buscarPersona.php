@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="php/estilos/buscarPersona.css">
     <title>Buscar persona</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
         <label for="buscar">Palabra/s a Buscar:</label><br>
         <input type="text" name="buscar"><br><br><br>
 
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Buscar">
         <input type="reset" value="Borrar datos">
     </form>
     <p><a href="index.php?controlador=CAgenda&metodo=Menu">Cancelar</a></p>

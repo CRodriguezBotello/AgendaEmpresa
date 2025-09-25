@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="php/estilos/formPersonas.css">
     <title>Modificar Persona</title>
 </head>
 <body>
     <h1>Modificar Datos</h1>
     <form action="" method="post">
-        <label for="nombre">Nuevo nombre de la persona</label><br><br>
+        <label for="nombre">Nuevo nombre de la persona</label><br>
         <?php
             echo '<input type="text" name="nombre" value="'.$datos["persona"][0]["nombre"].'">'
         ?>
         <br><br>
-        <label for="apellido">Nuevos apellidos de la persona</label><br><br>
+        <label for="apellido">Nuevos apellidos de la persona</label><br>
         <?php
             echo '<input type="text" name="apellido" value="'.$datos["persona"][0]["apellido"].'">'
         ?>
         <br><br>
-        <label for="codPostal">Nuevo código Postal de la persona</label><br><br>
+        <label for="codPostal">Nuevo código Postal de la persona</label><br>
         <?php
-            echo '<input type="text" name="codPostal" value="'.$datos["persona"][0]["codPostal"].'">'
+            echo '<input type="text" name="codPostal" value="'.$datos["persona"][0]["codPostal"].'" maxlenght="5">'
         ?>
         <br><br>
-        <label for="tfn">Nuevo teléfono de la persona</label><br><br>
+        <label for="tfn">Nuevo teléfono de la persona</label><br>
         <?php
-            echo '<input type="text" name="tfn" value="'.$datos["persona"][0]["tfn"].'">'
+            echo '<input type="text" name="tfn" value="'.$datos["persona"][0]["tfn"].'" maxlenght="9">'
         ?>
         <br><br>
-        <label for="genero">Nuevo género de la persona</label><br>
+        <label for="genero">Nuevo género de la persona</label>
         <?php
             if($datos['persona'][0]['genero'] == 'M'){
                 echo '<input type="radio" name="genero" value="M" checked>Masculino<br>';
@@ -40,9 +41,9 @@
             
         ?>
         <br><br>
-        <label for="edad">Nueva edad de la persona</label><br>
+        <label for="edad">Nueva edad de la persona</label>
         <?php
-            echo '<input type="text" name="edad" value="'.$datos["persona"][0]["edad"].'">'
+            echo '<input type="text" name="edad" value="'.$datos["persona"][0]["edad"].'" maxlenght="3">'
         ?>
         </br></br>
 
